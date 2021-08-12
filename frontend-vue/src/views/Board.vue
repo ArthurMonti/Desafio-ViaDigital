@@ -1,8 +1,7 @@
 <template>
   <div>
-    <div>
-      <Container :drop-placeholder="{ className: 'placeholder' }" class="board">
-        <Draggable v-for="container in containers" :key="container.id">
+    <div class="board">
+        <div v-for="container in containers" :key="container.id">
           <div class="card Card">
             <header class="card-header">
               <p class="card-header-title">
@@ -68,7 +67,7 @@
               >
             </footer>
           </div>
-        </Draggable>
+        </div>
 
         <div class="card Card">
           <header class="card-header">
@@ -81,7 +80,6 @@
             </a>
           </header>
         </div>
-      </Container>
     </div>
   </div>
 </template>

@@ -65,16 +65,23 @@ export default {
         axios
           .post("https://localhost:44360/Usuarios/Login", this.User)
           .then((res) => {
-            this.User.id = res.data.id;
-            this.User.name = res.data.name;
-            this.User.password = "";
-            this.$emit("logado", { User: this.User });
-            localStorage.setItem("user", JSON.stringify(this.User));
-            this.$router.push("Board");
+            if(res.data.id != null)
+            {
+              this.User.id = res.data.id;
+              this.User.name = res.data.name;
+              this.User.password = "";
+              this.$emit("logado", { User: this.User });
+              localStorage.setItem("user", JSON.stringify(this.User));
+              this.$router.push("Board");
+            }
+            else
+            {
+              alert("Usuario ou senha incorretos ou inexistentes");
+            }
           })
           .catch((error) => {
             console.log(error);
-            alert(error);
+            
           });
       }
     },

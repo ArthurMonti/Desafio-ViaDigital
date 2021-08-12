@@ -130,7 +130,7 @@ namespace APICore.Controllers
                 }
                 else //Não consegui usar o NotAccepted, então vou utilizar o noContent no lugar
                 {
-                    return NoContent();
+                    return NotFound();
                 }
 
             }
